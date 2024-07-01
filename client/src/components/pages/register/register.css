@@ -1,0 +1,74 @@
+.register{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("http://media1.popsugar-assets.com/files/2021/01/14/843/n/1922507/dd265517553cf2bb_huper-by-joshua-earle-a3xymeWNDso-unsplash/i/Ocean-Sunset-Zoom-Background.jpg");
+    background-size: cover;
+    
+}
+.register-title{
+    font-family: "Lora", serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+
+.register-form
+{
+    margin-top:20px;
+    display:flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border: 2px solid rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-form>label{
+    margin: 10px 10px;
+    
+}
+
+.register-input{
+    padding: 10px;
+    margin: 0 10px;
+    background-color: white;
+    border: none;
+}
+
+.register-button{
+    margin:20px;
+    cursor:pointer;
+    background-color: teal;
+    border:none;
+    color:white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.register-login{
+
+   position: absolute;
+  top:60px;
+  right: 20px;
+  background-color: coral;
+  cursor: pointer;
+  border:none;
+    color:white;
+    border-radius: 10px;
+    padding: 10px;
+}
+.error-msg{
+
+    margin-top: 10px;
+    font-size: 20px;
+     color:rgb(240, 13, 13);
+     font-weight: 600;
+     background: rgba(255, 255, 255, 0.7);
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}

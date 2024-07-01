@@ -1,0 +1,54 @@
+.write{
+    padding-top: 50px;
+}
+
+ .write-img{
+    margin-left: 150px;
+    width:70vw;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+ }
+.write-form{
+  position: relative;
+}
+.write-formgroup{
+    margin-left: 150px;
+    display:flex;
+    align-items: center;
+}
+.write-icon{
+    height:25px;
+    width: 25px;
+    font-size: 20px;
+    color: grey;
+    cursor:pointer;
+}
+.write-input{
+    font-size:30px;
+    border: none;
+    padding: 20px;
+    width:70vw;
+}
+.write-input:focus{
+    outline:none;
+}
+
+.write-text{
+    font-size: 20px;
+    height: 100vh;
+}
+
+.write-submit{
+    position:absolute;
+    top: 20px;
+    right: 50px;
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    border:none;
+    border-radius: 10px;
+    cursor:pointer;
+    font-size: 16px;
+}
+
