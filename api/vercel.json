@@ -5,11 +5,6 @@
     ],
     "routes": [
         { "src": "/api/(.*)", "dest": "index.js" }
-    ],
-    "env": {
-        "MONGO_URL": "@mongo_url",
-        "CLOUD_NAME": "@cloud_name",
-        "CLOUD_API_KEY": "@cloud_api_key",
-        "CLOUD_API_SECRET": "@cloud_api_secret"
-    }
+    ]
 }
+
