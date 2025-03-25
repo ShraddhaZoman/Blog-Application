@@ -1,55 +1,64 @@
-const express=require("express");
-const app=express();
-const dotenv=require("dotenv");
-const mongoose=require("mongoose");
-const authRoute=require("./routes/auth");
-const userRoute=require("./routes/users");
-const postRoute=require("./routes/posts");
-const categoryRoute=require("./routes/categories");
-const multer=require("multer");
-const cors = require('cors');
+const express = require("express");
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
+const postRoute = require("./routes/posts");
+const categoryRoute = require("./routes/categories");
+const multer = require("multer");
+const cors = require("cors");
 const path = require("path");
-
-app.use(cors({
-    origin: ['http://localhost:3000', "https://deploy-mern-lwhq.vercel.app"],
-    methods:["POST","GET"],
-    credentials:true
-}));
-
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 dotenv.config();
+const app = express();
+
+// Enable CORS for frontend access
+app.use(cors({
+    origin: ["http://localhost:3000", "https://deploy-mern-lwhq.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+}));
+
+// Middleware
 app.use(express.json());
-app.use("/images", express.static(path.join(__dirname,"/images")));
 
+// MongoDB Connection
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
-mongoose.connect(process.env.MONGO_URL,
-    {
-         
+// Cloudinary Configuration for Image Uploads
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET
+});
+
+const storage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        folder: "blog_uploads",
+        format: async (req, file) => "png", // Adjust file format as needed
+        public_id: (req, file) => file.originalname
     }
-).then(console.log("Connected to mongo")).catch((err)=>console.log(err));
-
-const storage =multer.diskStorage({
-    destination:(req, file, cb)=>{
-        cb(null,"images");
-    },filename: (req,file,cb)=>
-    {
-        cb(null,req.body.name);
-    },
 });
 
+const upload = multer({ storage });
 
-const upload =multer({storage:storage});
-app.post("/api/upload",upload.single("file"), (req,res)=>{
-    res.status(200).json("File uploaded....");
+// Upload Route
+app.post("/api/upload", upload.single("file"), (req, res) => {
+    res.status(200).json({ url: req.file.path });
 });
 
+// Routes
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
+app.use("/api/posts", postRoute);
+app.use("/api/categories", categoryRoute);
 
-app.use("/api/auth",authRoute);
-app.use("/api/users",userRoute);
-app.use("/api/posts",postRoute);
-app.use("/api/categories",categoryRoute);
-
-
-app.listen("5000",()=>{
-    console.log("Backend is running");
-});
+// Export app for Vercel (NO app.listen)
+module.exports = app;
