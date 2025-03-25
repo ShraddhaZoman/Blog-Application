@@ -11,7 +11,9 @@ const cors = require('cors');
 const path = require("path");
 
 app.use(cors({
-    origin: 'http://localhost:3000' // Adjust this to match your frontend URL
+    origin: ['http://localhost:3000', "https://deploy-mern-lwhq.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
 }));
 
 
