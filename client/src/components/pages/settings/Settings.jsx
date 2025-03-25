@@ -17,7 +17,7 @@ export default function Settings() {
 
   const handlesubmit= async (e)=>{
     e.preventDefault();
-    dispatch({type:"UPDATE_START"})
+    dispatch({type:"UPDATE_START"});
     const updatedUser={
      userId: user._id,
      username,
@@ -78,7 +78,7 @@ export default function Settings() {
                 <input type="password" 
                 onChange={(e)=>setPassword(e.target.value)}/>
                 <button className="settings-submit" type="submit">Update</button>
-                {success && <span style={{color:'green', textAlign:'center',marginTop:'20px'}}>Profile has been updated</span>}
+                {success && (<span style={{color:'green', textAlign:'center',marginTop:'20px'}}>Profile has been updated</span>)}
             </form>
         </div>
             <Sidebar/>

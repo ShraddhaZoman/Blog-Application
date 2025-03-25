@@ -17,7 +17,7 @@ export default function Sidebar() {
         <div className="sidebar-item">
         <span className="sidebar-title">ABOUT ME</span>
         <img src="https://images.unsplash.com/photo-1629105339532-791fe454238e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvbGRpbmclMjBjYW1lcmF8ZW58MHx8MHx8fDA%3D" alt=""/>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam aperiam dignissimos dolor repudiandae, repellendus ad officia? </p>
+        <p>Write. Share. Inspire. Your stories, your voice – welcome to BlogSpot! </p>
         </div>
         <div className="sidebar-item">
         <span className="sidebar-title">CATEGORIES</span> 
