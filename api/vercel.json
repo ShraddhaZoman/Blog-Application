@@ -1,12 +1,15 @@
 {
-    "version":2,
-    "builds":[
-        {"src": "*.js","use":"@vercel/node"}
+    "version": 2,
+    "builds": [
+        { "src": "index.js", "use": "@vercel/node" }
     ],
-    "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"/"
-        }
-    ]
+    "routes": [
+        { "src": "/api/(.*)", "dest": "index.js" }
+    ],
+    "env": {
+        "MONGO_URL": "@mongo_url",
+        "CLOUD_NAME": "@cloud_name",
+        "CLOUD_API_KEY": "@cloud_api_key",
+        "CLOUD_API_SECRET": "@cloud_api_secret"
+    }
 }
