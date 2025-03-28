@@ -3199,7 +3199,7 @@ binary-extensions@^2.0.0:
     "@testing-library/react" "^13.4.0"
     "@testing-library/user-event" "^13.5.0"
     axios "^1.7.2"
-    blog "file:C:/Users/shrad/AppData/Local/Yarn/Cache/v6/npm-blog-0.1.0-4718155f-0d9c-4d1d-abc2-3a79a76fd818-1743152923918/node_modules/blog"
+    blog "file:C:/Users/shrad/AppData/Local/Yarn/Cache/v6/npm-blog-0.1.0-d1fcac8f-7a7b-4436-a70a-c9abf86ac09b-1743153571464/node_modules/blog"
     react "^18.3.1"
     react-dom "^18.3.1"
     react-router-dom "^6.23.1"
@@ -8787,7 +8787,7 @@ serve-static@1.15.0:
 
 serve@^14.2.4:
   version "14.2.4"
-  resolved "https://registry.npmjs.org/serve/-/serve-14.2.4.tgz"
+  resolved "https://registry.yarnpkg.com/serve/-/serve-14.2.4.tgz#ba4c425c3c965f496703762e808f34b913f42fb0"
   integrity sha512-qy1S34PJ/fcY8gjVGszDB3EXiPSk5FKhUa7tQe0UPRddxRidc2V6cNHPNewbE1D7MAkgLuWEt3Vw56vYy73tzQ==
   dependencies:
     "@zeit/schemas" "2.36.0"
